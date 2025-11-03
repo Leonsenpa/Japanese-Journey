@@ -1,38 +1,34 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
+const path = require("path");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const kanaData = require("./Ressources/kana.js");
 const kanjiData = require("./Ressources/kanji.js");
 const vocabularyData = require("./Ressources/vocabulary.js");
-
+const cors = require("cors");
 
 const app = express();
-const cors = require("cors");
+
+// --- Middlewares ---
 app.use(cors());
-
-
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1]; // format: "Bearer <token>"
-
-  if (!token) return res.sendStatus(401);
-
-  jwt.verify(token, JWT_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403);
-    req.user = user; // contient { id, email }
-    next();
-  });
-}
-
 app.use(express.json());
 
+// --- Fichiers statiques + page d'accueil ---
+app.use(express.static(__dirname)); // sert index.html, CSS, JS, images, etc.
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+// --- Connexion MongoDB ---
 const MONGODB_URI = process.env.MONGODB_URI;
 
-mongoose.connect(MONGODB_URI)
-  .then(() => console.log('MongoDB connecté'))
-  .catch(err => console.error(err));
+mongoose
+  .connect(MONGODB_URI)
+  .then(() => console.log("MongoDB connecté"))
+  .catch((err) => console.error(err));
 
 // --- Schéma utilisateur ---
 const userSchema = new mongoose.Schema({
@@ -50,8 +46,8 @@ const userSchema = new mongoose.Schema({
       level: { type: Number, default: 0 },
       xp: { type: Number, default: 0 },
       lastReviewed: { type: Date, default: null },
-      cooldown: { type: Number, default: 0 }
-    }
+      cooldown: { type: Number, default: 0 },
+    },
   },
   kanjiProgress: {
     type: Map,
@@ -59,8 +55,8 @@ const userSchema = new mongoose.Schema({
       level: { type: Number, default: 0 },
       xp: { type: Number, default: 0 },
       lastReviewed: { type: Date, default: null },
-      cooldown: { type: Number, default: 0 }
-    }
+      cooldown: { type: Number, default: 0 },
+    },
   },
   vocabularyProgress: {
     type: Map,
@@ -68,24 +64,31 @@ const userSchema = new mongoose.Schema({
       level: { type: Number, default: 0 },
       xp: { type: Number, default: 0 },
       lastReviewed: { type: Date, default: null },
-      cooldown: { type: Number, default: 0 }
-    }
-  }
+      cooldown: { type: Number, default: 0 },
+    },
+  },
 });
 
 const User = mongoose.model("User", userSchema);
 
 // --- Clé JWT ---
-const JWT_SECRET = "super_secret_key"; // à mettre en variable d'environnement plus tard
+const JWT_SECRET = process.env.JWT_SECRET || "super_secret_key";
 
-// --- Routes ---
+// --- Middleware d’authentification ---
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1]; // format: "Bearer <token>"
 
-// Test route
-app.use(express.static(__dirname));
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
-});
+  if (!token) return res.sendStatus(401);
 
+  jwt.verify(token, JWT_SECRET, (err, user) => {
+    if (err) return res.sendStatus(403);
+    req.user = user; // contient { id, email }
+    next();
+  });
+}
+
+// --- Routes API ---
 
 // Inscription
 app.post("/api/register", async (req, res) => {
@@ -101,32 +104,32 @@ app.post("/api/register", async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, 10);
 
   const initialKanaProgress = {};
-  kanaData.forEach(k => {
+  kanaData.forEach((k) => {
     initialKanaProgress[k.kana] = {
       level: 0,
       xp: 0,
       lastReviewed: null,
-      cooldown: 0
+      cooldown: 0,
     };
   });
 
   const initialKanjiProgress = {};
-  kanjiData.forEach(k => {
+  kanjiData.forEach((k) => {
     initialKanjiProgress[k.kanji] = {
       level: 0,
       xp: 0,
       lastReviewed: null,
-      cooldown: 0
+      cooldown: 0,
     };
   });
 
   const initialVocabularyProgress = {};
-  vocabularyData.forEach(k => {
+  vocabularyData.forEach((k) => {
     initialVocabularyProgress[k.kanji] = {
       level: 0,
       xp: 0,
       lastReviewed: null,
-      cooldown: 0
+      cooldown: 0,
     };
   });
 
@@ -141,8 +144,7 @@ app.post("/api/register", async (req, res) => {
     mainCompanion: mainCompanion ?? "tanuki_basic",
     kanaProgress: initialKanaProgress,
     kanjiProgress: initialKanjiProgress,
-    vocabularyProgress: initialVocabularyProgress
-
+    vocabularyProgress: initialVocabularyProgress,
   });
 
   await newUser.save();
@@ -158,20 +160,16 @@ app.post("/api/login", async (req, res) => {
     return res.status(400).json({ error: "Utilisateur introuvable" });
   }
 
-  // ✅ Vérifie le mot de passe avec bcrypt
+  // Vérifie le mot de passe avec bcrypt
   const validPassword = await bcrypt.compare(password, user.passwordHash);
   if (!validPassword) {
     return res.status(400).json({ error: "Mot de passe incorrect" });
   }
 
-  // ✅ Génère un token JWT
+  // Génère un token JWT
   const token = jwt.sign({ id: user._id, email: user.email }, JWT_SECRET, { expiresIn: "1h" });
 
   res.json({ token, id: user._id });
-});
-
-app.listen(3000, () => {
-  console.log("🚀 Serveur démarré sur http://localhost:3000");
 });
 
 // Récupérer les infos d’un utilisateur
@@ -192,13 +190,23 @@ app.put("/api/user/:id", authenticateToken, async (req, res) => {
     return res.status(403).json({ error: "Accès interdit" });
   }
 
-  const updates = req.body;
+  const updates = { ...req.body };
 
-  // Empêche la modification du mot de passe directement
+  // Empêche la modification directe du hash du mot de passe
   if (updates.passwordHash) delete updates.passwordHash;
 
-  const user = await User.findByIdAndUpdate(req.params.id, updates, { new: true }).select("-passwordHash");
+  const user = await User.findByIdAndUpdate(req.params.id, updates, {
+    new: true,
+  }).select("-passwordHash");
+
   if (!user) return res.status(404).json({ error: "Utilisateur non trouvé" });
 
   res.json({ message: "Mise à jour réussie", user });
+});
+
+// --- Démarrage serveur (IMPORTANT pour Render) ---
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Serveur démarré sur le port ${PORT}`);
 });
