@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Accueil - JLPT Quest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+
+<div id="onb-overlay" aria-hidden="true" hidden>
+  <div class="onb-backdrop"></div>
+
+  <section class="onb-panel" role="dialog" aria-modal="true" aria-labelledby="onb-title">
+    <div class="onb-left">
+      <img id="onb-companion" src="../../companions/tanuki_basic.png" alt="Compagnon" />
+    </div>
+
+    <div class="onb-right">
+      <h2 id="onb-title">Bienvenue !</h2>
+      <p id="onb-text"></p>
+
+      <div class="onb-question">
+        <p>Connais-tu déjà <strong>tous les kana</strong> (hiragana + katakana) ?</p>
+        <div class="onb-actions">
+          <button id="onb-yes" class="onb-btn yes">Oui, je les connais</button>
+          <button id="onb-no" class="onb-btn no">Pas encore</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<body>
+  <header>
+  <nav class="navbar">
+    <div class="logo">🎌 JLPT Quest</div>
+    <div class="user-info" id="user-info">
+      <img id="user-companion" alt="Companion" />
+      <div class="user-meta">
+        <div class="user-line">
+          <span class="dot">•</span>
+          <strong id="user-name"></strong>
+          <span class="dot">•</span>
+          <strong id="user-level"></strong>
+          <span class="dot">•</span>
+        </div>
+        <div class="user-line">
+          <span class="coin">🪙</span><strong id="user-coins"></strong>
+        </div>
+      </div>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../../dashboard.html">Mon compte</a></li>
+      <li><a href="#" id="logout">Déconnexion</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+  <main class="exercise-hub">
+    <h2>Choisis ton entraînement</h2>
+    <div class="exercise-grid">
+      <a href="../Kana_Hub/kanaHub.html" class="exercise-card">📖 Kana</a>
+      <a href="../Kanji_Hub/kanjiHub.html" class="exercise-card">🈷️ Kanji</a>
+      <a href="../Vocabulary_Hub/vocabularyHub.html" class="exercise-card">🧠 Vocabulaire</a>
+      <a href="../Grammar_Hub/grammarHub.html" class="exercise-card">📘 Grammaire</a>
+      <a href="../Lecture_Hub/lectureHub.html" class="exercise-card">📚 Lecture</a>
+      <a href="../Ecoute_Hub/ecouteHub.html" class="exercise-card">🎧 Écoute</a>
+      <a href="../Companion_Hub/companionHub.html" class="exercise-card">🦝 Compagnons</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 JLPT Quest. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    document.getElementById("logout").addEventListener("click", () => {
+      localStorage.removeItem("currentUser"); api && api.logout && api.logout();
+      window.location.href = "../../index.html";
+    });
+  </script>
+  <script src="hub.js"></script>
+  <script src="../../js/api.js"></script>
+</body>
+</html>

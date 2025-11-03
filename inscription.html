@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inscription - JLPT Quest</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🎌 JLPT Quest</div>
+      <ul class="nav-links">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">S'inscrire</a></li>
+        <li><a href="#">Se connecter</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="form-container">
+    <h2>Créer un compte</h2>
+    <form id="signup-form">
+      <label for="username">Pseudo</label>
+      <input type="text" id="username" required />
+
+      <label for="email">Adresse email</label>
+      <input type="email" id="email" required />
+
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" required />
+
+      <button type="submit">S'inscrire</button>
+    </form>
+    <p id="signup-message"></p>
+  </main>
+
+  <footer>
+    <p>© 2025 JLPT Quest. Tous droits réservés.</p>
+  </footer>
+
+  <script src="signup.js"></script>
+  <script src="./js/api.js"></script>
+</body>
+</html>

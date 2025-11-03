@@ -1,0 +1,2 @@
+1) faire le système de quizz avec les kanji (avec les readings + la traduction)
+2) ajouter les progressions de kana, kanji et vocabulaire dans l'api

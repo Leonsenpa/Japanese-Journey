@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Détail du Kanji</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🎌 JLPT Quest</div>
+
+      <div class="user-info" id="user-info">
+        <img id="user-companion" alt="Companion" />
+        <div class="user-meta">
+          <div class="user-line">
+            <span class="dot">•</span>
+            <strong id="user-name"></strong>
+            <span class="dot">•</span>
+            <strong id="user-level"></strong>
+            <span class="dot">•</span>
+          </div>
+          <div class="user-line">
+            <span class="coin">🪙</span><strong id="user-coins"></strong>
+          </div>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="kanjiHub.html">⬅ Retour au hub</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="kanji-detail-container">
+    <h2>Détails du Kanji</h2>
+    <div id="kanji-detail">
+        <div id="kanji-char" class="kanji-char-large"></div>
+        <p><strong>Lecture (onyomi) :</strong> <span id="kanji-onReading"></span></p>
+        <p><strong>Lecture (kunyomi) :</strong> <span id="kanji-kunReading"></span></p>
+        <p><strong>Signification :</strong> <span id="kanji-meaning"></span></p>
+        <p><strong>Mnémotechnique :</strong> <span id="kanji-mnemonic"></span></p>
+        <p><strong>Niveau :</strong> <span id="kanji-level"></span></p>
+        <p><strong>XP :</strong> <span id="kanji-xp"></span></p>
+        <p><strong>Prochaine étude :</strong> <span id="kanji-availability"></span></p>
+
+        <div class="kanji-media">
+            <h3>Tracé du kanji</h3>
+            <img id="kanji-trace" alt="Tracé du kanji" />
+
+            <h3>Prononciation</h3>
+            <button id="play-audio">🔊 Écouter</button>
+            <audio id="kanji-audio" controls style="display:none;"></audio>
+        </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2025 JLPT Quest. Tous droits réservés.</p>
+  </footer>
+
+  <script src="../../Ressources/kanji.js"></script>
+  <script src="kanjiDetail.js"></script>
+  <script src="../../js/api.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vocabulary - Progression</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🎌 JLPT Quest</div>
+
+      <div class="user-info" id="user-info">
+        <img id="user-companion" alt="Companion" />
+        <div class="user-meta">
+          <div class="user-line">
+            <span class="dot">•</span>
+            <strong id="user-name"></strong>
+            <span class="dot">•</span>
+            <strong id="user-level"></strong>
+            <span class="dot">•</span>
+          </div>
+          <div class="user-line">
+            <span class="coin">🪙</span><strong id="user-coins"></strong>
+          </div>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="../../index.html">Accueil</a></li>
+        <li><a href="../../dashboard.html">Mon compte</a></li>
+        <li><a href="#" id="logout">Déconnexion</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="vocabulary-hub">
+    <h2>Mes exercices de vocabulaire</h2>
+    <div class="vocabulary-buttons">
+      <a id="btn-decouverte" href="vocabularyTrainer.html?mode=decouverte" class="btn">🔍 Découverte</a>
+      <a id="btn-evolution" href="vocabularyTrainer.html?mode=evolution" class="btn">📈 Progression</a>
+      <a id="btn-revision" href="vocabularyTrainer.html?mode=revision" class="btn">🔁 Révision</a>
+    </div>
+
+    <section id="vocabulary-list" class="vocabulary-scroll"></section>
+  </main>
+
+  <footer>
+    <p>© 2025 JLPT Quest. Tous droits réservés.</p>
+  </footer>
+
+<script>
+    document.getElementById("logout").addEventListener("click", () => {
+      localStorage.removeItem("currentUser"); api && api.logout && api.logout();
+      window.location.href = "../../index.html";
+    });
+</script>
+
+<script src="../../Ressources/vocabulary.js"></script>
+<script src="vocabularyHub.js"></script>
+  <script src="../../js/api.js"></script>
+</body>
+</html>

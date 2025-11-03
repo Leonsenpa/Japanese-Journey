@@ -1,0 +1,1509 @@
+/* page d'accueil (index.html)*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+main {
+  flex: 1;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fdf6f0;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffe5ec;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff5e78;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #ff5e78;
+}
+
+.hero {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  color: #ff5e78;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+#start-btn {
+  padding: 0.8rem 1.5rem;
+  background-color: #ffb3c1;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, background-color 0.3s;
+}
+
+#start-btn:hover {
+  background-color: #ff94a8;
+  transform: scale(1.05);
+}
+
+.hero-image img {
+  width: 250px;
+  max-width: 90%;
+  border-radius: 20px;
+  box-shadow: 4px 4px 15px rgba(0,0,0,0.1);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #ffe5ec;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* fin de la page d'accueil */
+
+/* début de la page d'inscription (inscription.html) (fonctionne aussi pour la page de connexion(connexion.html))*/
+
+.form-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  background: #fff0f5;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #ff5e78;
+}
+
+.form-container label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-container button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #ffb3c1;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+  background-color: #ff94a8;
+}
+
+#signup-message {
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #3c763d;
+}
+
+/* fin de la page d'inscription (inscription.html) */
+
+/* début de la page du dashboard (dashboard.html) */
+
+.dashboard-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff0f5;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #ff5e78;
+}
+
+#companions {
+  margin-top: 1rem;
+  text-align: center;
+  font-style: italic;
+  color: #999;
+}
+
+/* fin de la page du dashboard */
+
+/* début de la page kanji_niveau0.html */
+
+.kanji-display {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff0f5;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+#kanji-char {
+  font-size: 5rem;
+  margin: 1rem 0;
+  color: #ff5e78;
+}
+
+#kanji-card p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+#kanji-mnemonic {
+  color: #555;
+  font-style: italic;
+}
+
+#next-btn {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background-color: #ffb3c1;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#next-btn:hover {
+  background-color: #ff94a8;
+}
+
+/* fin de la page kanji_niveau0.html */
+
+/* début de la page du hub central (hub.html) */
+.exercise-hub {
+  text-align: center;
+  padding: 2rem;
+}
+
+.exercise-hub h2 {
+  color: #ff5e78;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.exercise-card {
+  background-color: #fff0f5;
+  padding: 1.5rem;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #333;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.exercise-card:hover {
+  transform: scale(1.05);
+  background-color: #ffe5ec;
+}
+
+/* fin de la page du hub centrale */
+
+/* début de kanaHub.html */
+
+.kana-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.kana-buttons .btn {
+  padding: 0.8rem 1.2rem;
+  background-color: #ffb3c1;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  box-shadow: 2px 4px 8px rgba(0,0,0,0.05);
+  transition: background 0.3s;
+}
+.kana-buttons .btn:hover {
+  background-color: #ff94a8;
+}
+
+.kana-scroll {
+  padding: 1rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.kana-card-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 2rem;
+}
+
+.kana-card {
+  width: 160px;
+  height: 60px;
+  border-radius: 10px;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  transition: background-color 0.3s;
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+}
+
+.kana-card-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.card-locked {
+  background-color: #e0e0e0;
+  color: #aaa;
+}
+
+.kana-level-0  { background-color: #ffffff; }
+.kana-level-1  { background-color: #ffe5ec; }
+.kana-level-2  { background-color: #ffc2d1; }
+.kana-level-3  { background-color: #ff9aa2; }
+.kana-level-4  { background-color: #ff6b81; }
+.kana-level-5  { background-color: #ff4757; }
+.kana-level-6  { background-color: #e84118; }
+.kana-level-7  { background-color: #c23616; }
+.kana-level-8  { background-color: #b33939; }
+.kana-level-9  { background-color: #833471; }
+.kana-level-10 { background-color: #2f3542; color: white; }
+
+.kana-card {
+  position: relative;
+  cursor: default;
+}
+
+.kana-card::after {
+  content: attr(data-level);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #444;
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.kana-card:hover::after {
+  opacity: 1;
+}
+
+/* fin de la page kanaHub */
+
+/* début d'un petit ajout (un bouton retour pour les exercices */
+
+.back-button-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #ffe5ec;
+  color: #333;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background-color: #ffb3c1;
+}
+
+/* fin du petit ajout */
+
+/* début de la page kanjiHub.html */
+
+.kanji-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.kanji-buttons .btn {
+  padding: 0.8rem 1.2rem;
+  background-color: #ffb3c1;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  box-shadow: 2px 4px 8px rgba(0,0,0,0.05);
+  transition: background 0.3s;
+}
+.kanji-buttons .btn:hover {
+  background-color: #ff94a8;
+}
+
+.kanji-scroll {
+  padding: 1rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.kanji-card-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 2rem;
+}
+
+.kanji-card {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  transition: background-color 0.3s;
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+}
+
+.kanji-card-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.card-locked {
+  background-color: #e0e0e0;
+  color: #aaa;
+}
+
+.kanji-level-0  { background-color: #ffffff; }
+.kanji-level-1  { background-color: #ffe5ec; }
+.kanji-level-2  { background-color: #ffc2d1; }
+.kanji-level-3  { background-color: #ff9aa2; }
+.kanji-level-4  { background-color: #ff6b81; }
+.kanji-level-5  { background-color: #ff4757; }
+.kanji-level-6  { background-color: #e84118; }
+.kanji-level-7  { background-color: #c23616; }
+.kanji-level-8  { background-color: #b33939; }
+.kanji-level-9  { background-color: #833471; }
+.kanji-level-10 { background-color: #2f3542; color: white; }
+
+.kanji-card {
+  position: relative;
+  cursor: default;
+}
+
+.kanji-card::after {
+  content: attr(data-level);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #444;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 10;
+}
+
+.kanji-card:hover::after {
+  opacity: 1;
+}
+
+/* fin de la page du hub des kanji */
+
+/* début page kana détail */
+
+.kana-detail-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  background: #fff0f5;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.kana-detail-container h2 {
+  font-size: 2rem;
+  color: #ff5e78;
+  margin-bottom: 2rem;
+}
+
+#kana-char.kana-char-large {
+  font-size: 6rem;
+  color: #ff5e78;
+  margin-bottom: 1rem;
+}
+
+#kana-detail p {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  color: #444;
+}
+
+#kana-detail span {
+  font-weight: bold;
+  color: #222;
+}
+
+.kana-media {
+  margin-top: 2rem;
+}
+
+.kana-media h3 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #ff5e78;
+}
+
+#kana-trace {
+  margin-top: 1rem;
+  width: 120px;
+  height: auto;
+  border: 2px solid #ffd6de;
+  border-radius: 10px;
+  padding: 0.5rem;
+  background: white;
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.05);
+}
+
+#play-audio {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #ffb3c1;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#play-audio:hover {
+  background-color: #ff94a8;
+}
+
+audio {
+  margin-top: 1rem;
+}
+
+.btn.disabled {
+  background-color: #ccc;
+  color: #777;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* fin de la page de détail des kana */
+
+/* début page kanji détail */
+
+.kanji-detail-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  background: #fff0f5;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.kanji-detail-container h2 {
+  font-size: 2rem;
+  color: #ff5e78;
+  margin-bottom: 2rem;
+}
+
+#kanji-char.kanji-char-large {
+  font-size: 6rem;
+  color: #ff5e78;
+  margin-bottom: 1rem;
+}
+
+#kanji-detail p {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  color: #444;
+}
+
+#kanji-detail span {
+  font-weight: bold;
+  color: #222;
+}
+
+.kanji-media {
+  margin-top: 2rem;
+}
+
+.kanji-media h3 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #ff5e78;
+}
+
+#kanji-trace {
+  margin-top: 1rem;
+  width: 120px;
+  height: auto;
+  border: 2px solid #ffd6de;
+  border-radius: 10px;
+  padding: 0.5rem;
+  background: white;
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.05);
+}
+
+#play-audio {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #ffb3c1;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#play-audio:hover {
+  background-color: #ff94a8;
+}
+
+audio {
+  margin-top: 1rem;
+}
+
+.btn.disabled {
+  background-color: #ccc;
+  color: #777;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* fin de la page de détail des kanji */
+
+/* début page vocabulaire détail */
+
+.vocabulary-detail-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  background: #fff0f5;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.vocabulary-detail-container h2 {
+  font-size: 2rem;
+  color: #ff5e78;
+  margin-bottom: 2rem;
+}
+
+#vocabulary-char.vocabulary-char-large {
+  font-size: 6rem;
+  color: #ff5e78;
+  margin-bottom: 1rem;
+}
+
+#vocabulary-detail p {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  color: #444;
+}
+
+#vocabulary-detail span {
+  font-weight: bold;
+  color: #222;
+}
+
+.vocabulary-media {
+  margin-top: 2rem;
+}
+
+.vocabulary-media h3 {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #ff5e78;
+}
+
+#vocabulary-trace {
+  margin-top: 1rem;
+  width: 120px;
+  height: auto;
+  border: 2px solid #ffd6de;
+  border-radius: 10px;
+  padding: 0.5rem;
+  background: white;
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.05);
+}
+
+#play-audio {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #ffb3c1;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#play-audio:hover {
+  background-color: #ff94a8;
+}
+
+audio {
+  margin-top: 1rem;
+}
+
+.btn.disabled {
+  background-color: #ccc;
+  color: #777;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* fin de la page de détail du vocabulaire */
+
+.hub-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.hub-buttons .btn {
+  background-color: #ffb3c1;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease;
+}
+
+.hub-buttons .btn:hover {
+  background-color: #ff94a8;
+}
+
+/* début de la page collection.html */
+
+.collection-container {
+  padding: 2rem;
+  text-align: center;
+}
+
+.grid-companions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.companion-card {
+  width: 120px;
+  text-align: center;
+}
+
+.companion-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: transform 0.3s;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.companion-card.locked img {
+  filter: grayscale(100%) brightness(0);
+}
+
+.companion-card span {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #444;
+}
+
+.common {
+  color: #555 !important;
+}
+
+.rare {
+  color: #4f46e5 !important;
+}
+
+.epique {
+  color: #a21caf !important;
+}
+
+.legendaire {
+  color: #d97706 !important;
+}
+
+/* fin de la page collection.html */
+
+/* début de la page summon.html */
+
+.summon-container {
+  text-align: center;
+  padding: 2rem;
+}
+
+.summon-container button {
+  padding: 1rem 2rem;
+  background-color: #ffb3c1;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.summon-container button:hover {
+  background-color: #ff94a8;
+}
+
+.summon-result {
+  margin-top: 2rem;
+}
+
+.summon-result img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  image-rendering: pixelated;
+  margin-bottom: 1rem;
+}
+
+.summon-result p {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+#summon-animation {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: all;
+}
+
+#summon-animation.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.spark {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  opacity: 0.8;
+  transform: scale(0);
+  animation: spark-grow 1.5s ease-out forwards;
+  z-index: 1001;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  translate: -50% -50%;
+  pointer-events: none;
+}
+
+@keyframes spark-grow {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  80% {
+    transform: scale(3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.summon-result-box {
+  position: relative;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  animation: fadeInScale 0.5s ease-out forwards;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  z-index: 1010;
+}
+
+
+.summon-result-box img {
+  width: 150px;
+  height: 150px;
+  image-rendering: pixelated;
+  margin-bottom: 1rem;
+}
+
+.summon-result-box span {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+@keyframes fadeInScale {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.summon-result-box::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotateHalo 3s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotateHalo {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.flash-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 9998;
+  animation: flash 0.3s ease-out forwards;
+}
+
+@keyframes flash {
+  0% {
+    background-color: rgba(255, 255, 255, 1);
+    opacity: 1;
+  }
+  100% {
+    background-color: transparent;
+    opacity: 0;
+  }
+}
+
+/* fin de la page summon.html */
+
+/* début de la page vocabularyHub.html */
+
+.vocabulary-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.vocabulary-buttons .btn {
+  padding: 0.8rem 1.2rem;
+  background-color: #ffb3c1;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  box-shadow: 2px 4px 8px rgba(0,0,0,0.05);
+  transition: background 0.3s;
+}
+.vocabulary-buttons .btn:hover {
+  background-color: #ff94a8;
+}
+
+.vocabulary-scroll {
+  padding: 1rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.vocabulary-card-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 2rem;
+}
+
+.vocabulary-card {
+  width: 160px;
+  height: 60px;
+  border-radius: 10px;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  transition: background-color 0.3s;
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+}
+
+.vocabulary-card-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.card-locked {
+  background-color: #e0e0e0;
+  color: #aaa;
+}
+
+.vocabulary-level-0  { background-color: #ffffff; }
+.vocabulary-level-1  { background-color: #ffe5ec; }
+.vocabulary-level-2  { background-color: #ffc2d1; }
+.vocabulary-level-3  { background-color: #ff9aa2; }
+.vocabulary-level-4  { background-color: #ff6b81; }
+.vocabulary-level-5  { background-color: #ff4757; }
+.vocabulary-level-6  { background-color: #e84118; }
+.vocabulary-level-7  { background-color: #c23616; }
+.vocabulary-level-8  { background-color: #b33939; }
+.vocabulary-level-9  { background-color: #833471; }
+.vocabulary-level-10 { background-color: #2f3542; color: white; }
+
+.vocabulary-card {
+  position: relative;
+  cursor: default;
+}
+
+.vocabulary-card::after {
+  content: attr(data-level);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #444;
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.vocabulary-card:hover::after {
+  opacity: 1;
+}
+
+/* fin de la page vocabularyHub.html */
+
+/**/
+
+/* 📄 Styles pour kanaTrainer */
+#quiz-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+#kanji-char {
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+
+#answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#answers button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  background-color: #ffb3c1;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#answers button:hover {
+  background-color: #ff94a8;
+}
+
+#kana-input {
+  padding: 10px;
+  font-size: 1rem;
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+#validate-btn,
+#next-btn {
+  padding: 10px 15px;
+  font-size: 1rem;
+  background-color: #ffb3c1;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#validate-btn:hover,
+#next-btn:hover {
+  background-color: #ff94a8;
+}
+
+#kanji-mnemonic {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/**/
+
+/* début de la page avec les questions pour lorsqu'on se connect pour la première fois */
+#onb-overlay[hidden] { display: none; }
+#onb-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  display: grid; place-items: center; 
+  font-family: inherit;
+}
+
+/* Assombrissement */
+.onb-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(1px);
+}
+
+/* Panneau tutoriel */
+.onb-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 220px minmax(280px, 560px);
+  gap: 16px;
+  background: transparent;
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 920px;
+  width: calc(100% - 32px);
+  z-index: 1;
+}
+
+/* Colonne gauche: compagnon */
+.onb-left {
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.onb-left img {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  width: 220px; height: auto; object-fit: contain;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,.15));
+}
+
+/* Colonne droite: bulle / texte */
+.onb-right {
+  position: relative; background: #fff;
+  border: 2px solid #222; border-radius: 14px; padding: 16px 18px;
+}
+.onb-right::before {
+  content: ""; position: absolute; left: -16px; bottom: 32px;
+  width: 0; height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 16px solid #222; /* bordure */
+}
+.onb-right::after {
+  content: ""; position: absolute; left: -12px; bottom: 32px;
+  width: 0; height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 14px solid #fff; /* fond bulle */
+}
+
+.onb-right h2 { margin: 0 0 8px; font-size: 1.4rem; }
+.onb-right p { margin: 0 0 12px; line-height: 1.5; }
+
+.onb-question { margin-top: 8px; }
+.onb-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.onb-btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+}
+.onb-btn.yes { background: #10b981; color: #fff; }
+.onb-btn.no { background: #ef4444; color: #fff; }
+
+@media (max-width: 720px) {
+  .onb-panel { grid-template-columns: 1fr; }
+  .onb-left { display: none; }
+}
+
+/* fin de la page avec la question quand on se connect pour la première fois*/
+
+/* début de la modification sur le header (ajout du pseudo + level etc...) */
+
+.navbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; position: relative;
+}
+
+/* Bloc user info dans le header */
+.user-info {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 10px;
+  margin-left: auto; /* pousse vers la droite si besoin */
+}
+
+.user-info img {
+  width: 64px; height: 64px;
+  image-rendering: pixelated;       /* NET pour pixel art */
+  image-rendering: crisp-edges;     /* fallback */
+  border-radius: 6px; /* optionnel */
+  object-fit: contain;
+  background: #fff0;
+}
+
+.user-meta {
+  display: flex; flex-direction: row; line-height: 1.1;
+  font-size: 0.95rem;
+}
+
+.user-line { white-space: nowrap; }
+.user-line .dot { opacity: .5; margin: 0 6px; }
+.coin { margin-left: 2px; }
+
+/* Responsive: réduire si petit écran */
+@media (max-width: 640px) {
+  .user-meta { display: none; }     /* garde juste l’icône du compagnon */
+  .user-info img { width: 32px; height: 32px; }
+}
+
+/* fin de la modification du header */
+
+/* ajout de la mécanique de choix de mascotte dans collection.html */
+
+/* Carte sélectionnée = mascotte actuelle */
+.companion-card.selected {
+  position: relative;
+  outline: 3px solid #ffd166;           /* contour doré */
+  box-shadow: 0 0 12px rgba(255, 209, 102, 0.8);
+  border-radius: 12px;
+}
+
+/* Petit badge "Mascotte" optionnel */
+.companion-card.selected::after {
+  content: "Mascotte";
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #ffd166, #ffe29a);
+  color: #333;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+
+/* Modal */
+.modal.hidden { display: none; }
+.modal {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.6);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2000;
+}
+.modal-box {
+  width: min(90vw, 360px);
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.2rem;
+  box-shadow: 0 12px 24px rgba(0,0,0,.2);
+  text-align: center;
+}
+.modal-actions {
+  margin-top: 1rem;
+  display: flex; gap: .6rem; justify-content: center;
+}
+.modal-actions .btn-confirm,
+.modal-actions .btn-cancel {
+  padding: .6rem 1rem; border: none; border-radius: 10px; cursor: pointer;
+}
+.modal-actions .btn-confirm { background: #4ade80; color: #123; font-weight: 700; }
+.modal-actions .btn-confirm:hover { filter: brightness(0.95); }
+.modal-actions .btn-cancel { background: #e5e7eb; color: #333; }
+.modal-actions .btn-cancel:hover { filter: brightness(0.95); }
+
+/* (Rappel) locked en noir total */
+.companion-card.locked img { filter: grayscale(100%) brightness(0); }
+
+/* fin de l'ajout de la mécanique de choix de mascotte dans collection.html */
+
+/* début de la page lesson */
+
+/* --- Mise en page générale --- */
+.lesson-title {
+  text-align: center;
+  margin: 16px 0 8px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 700;
+}
+
+.dialogue-stage {
+  padding: 24px;
+    /* Ajouts pour centrer verticalement */
+  display: flex;
+  flex-direction: column; /* pour que le bouton reste sous la bulle */
+  justify-content: center; /* centre verticalement */
+  align-items: center; /* centre horizontalement */
+  min-height: 70vh; /* prend toute la hauteur de la fenêtre */
+  box-sizing: border-box;
+}
+
+/* Le wrapper prend la taille de la bulle, est centré, et sert d'ancre au tanuki */
+.dialogue-wrapper {
+  position: relative;
+  width: max-content;       /* s’ajuste à la largeur de la bulle */
+  margin: 0 auto;           /* centre le wrapper donc la bulle */
+}
+
+/* --- Bulle de dialogue centrée --- */
+.dialogue-bubble {
+  background: #ffffff;
+  border: 3px solid #000;
+  border-radius: 20px;
+  padding: 16px 20px;
+  width: 60ch;          /* largeur confortable de lecture */
+  height: 40ch;
+  text-align: center;
+  font: 18px/1.45 Arial, sans-serif;
+  position: relative;       /* nécessaire pour la flèche */
+  box-shadow: 0 8px 0 #0003, 0 2px 0 #0002 inset;
+}
+
+/* Flèche qui pointe vers le tanuki (à gauche) */
+.dialogue-bubble::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent #000 transparent transparent;
+}
+
+.dialogue-bubble::after {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent #fff transparent transparent;
+}
+
+.dialogue-character {
+  position: absolute;
+  right: 100%;
+  margin-right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 640px;
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+/* --- Bouton --- */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+#next-btn {
+  border: 3px solid #000;
+  background: #ffd24d;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .06s ease, box-shadow .06s ease;
+  box-shadow: 0 4px 0 #000;
+}
+#next-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #000;
+}
+
+/* --- Responsive (petits écrans) --- */
+@media (max-width: 600px) {
+  .dialogue-character {
+    position: static;
+    transform: none;
+    display: block;
+    margin: 0 auto 10px;
+    width: 80px;
+  }
+  .dialogue-bubble {
+    max-width: min(80vw, 60ch);
+  }
+}
+
+/* fin de la page lesson */
+
+/* Feedback visuel pour les qcm et les questions normales*/
+
+.kt-choice.correct { background: #16a34a1a; border: 2px solid #16a34a; color: #14532d; }
+.kt-choice.wrong   { background: #dc26261a; border: 2px solid #dc2626; color: #7f1d1d; }
+.kt-locked { pointer-events: none; opacity: .85; }
+
+#kt-feedback { margin-top: .5rem; font-size: .95rem; }
+#kt-feedback.good { color: #166534; }
+#kt-feedback.bad  { color: #7f1d1d; }
+
+.kt-hidden { display: none !important; }
+
+.kt-quiz-wrap { max-width: 720px; margin: 1rem auto; padding: 1rem; }
+#kt-question { font-weight: 700; margin-bottom: .75rem; }
+#kt-choices  { display: grid; gap: .5rem; }
+.kt-choice   { padding: .6rem .8rem; border: 1px solid #ddd; border-radius: .6rem; background: #fff; text-align: left; }
+#kt-open-form { display: flex; gap: .5rem; margin-top: .75rem; }
+#kt-open-input { flex: 1; padding: .6rem .8rem; border: 1px solid #ddd; border-radius: .6rem; }
+#kt-next-btn { margin-top: .75rem; padding: .6rem .9rem; border-radius: .6rem; border: none; background: #111827; color: #fff; cursor: pointer; }
+#kt-next-btn:disabled { opacity: .6; cursor: not-allowed; }
+
+/* fin du Feedback visuel*/

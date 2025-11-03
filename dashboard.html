@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tableau de bord - JLPT Quest</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🎌 JLPT Quest</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="#" id="logout-btn">Déconnexion</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="dashboard-container">
+    <h2>Mon tableau de bord</h2>
+    <p><strong>Pseudo :</strong> <span id="username"></span></p>
+    <p><strong>Email :</strong> <span id="email"></span></p>
+    <p><strong>Level :</strong> <span id="level">0</span></p>
+    <p><strong>Gold :</strong> <span id="coins"></span></p>
+
+
+    <hr />
+
+    <h3>Mes compagnons</h3>
+    <div id="companions">
+      <p>(Aucun compagnon pour le moment... 🐣)</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 JLPT Quest. Tous droits réservés.</p>
+  </footer>
+
+  <script src="dashboard.js"></script>
+  <script src="./js/api.js"></script>
+</body>
+</html>

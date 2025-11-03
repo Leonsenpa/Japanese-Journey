@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kana - Progression</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🎌 JLPT Quest</div>
+
+      <div class="user-info" id="user-info">
+        <img id="user-companion" alt="Companion" />
+        <div class="user-meta">
+          <div class="user-line">
+            <span class="dot">•</span>
+            <strong id="user-name"></strong>
+            <span class="dot">•</span>
+            <strong id="user-level"></strong>
+            <span class="dot">•</span>
+          </div>
+          <div class="user-line">
+            <span class="coin">🪙</span><strong id="user-coins"></strong>
+          </div>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="../../index.html">Accueil</a></li>
+        <li><a href="../../dashboard.html">Mon compte</a></li>
+        <li><a href="#" id="logout">Déconnexion</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="kana-hub">
+    <h2>Mes exercices de kana</h2>
+    <div class="kana-buttons">
+      <a id="btn-decouverte" href="kanaTrainer.html?mode=decouverte" class="btn">🔍 Découverte</a>
+      <a id="btn-evolution" href="kanaTrainer.html?mode=evolution" class="btn">📈 Progression</a>
+      <a id="btn-revision" href="../../lessonTrainer.html?lesson=importance_kana" class="btn">🔁 Révision</a>
+    </div>
+
+    <section id="kana-list" class="kana-scroll"></section>
+  </main>
+
+  <footer>
+    <p>© 2025 JLPT Quest. Tous droits réservés.</p>
+  </footer>
+
+<script>
+    document.getElementById("logout").addEventListener("click", () => {
+      localStorage.removeItem("currentUser"); api && api.logout && api.logout();
+      window.location.href = "../../index.html";
+    });
+</script>
+
+<script src="../../Ressources/kana.js"></script>
+<script src="kanaHub.js"></script>
+  <script src="../../js/api.js"></script>
+</body>
+</html>

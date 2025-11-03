@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ma collection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🎌 JLPT Quest</div>
+
+      <div class="user-info" id="user-info">
+        <img id="user-companion" alt="Companion" />
+        <div class="user-meta">
+          <div class="user-line">
+            <span class="dot">•</span>
+            <strong id="user-name"></strong>
+            <span class="dot">•</span>
+            <strong id="user-level"></strong>
+            <span class="dot">•</span>
+          </div>
+          <div class="user-line">
+            <span class="coin">🪙</span><strong id="user-coins"></strong>
+          </div>
+        </div>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="companionHub.html">⬅ Retour au hub</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="mascot-modal" class="modal hidden">
+    <div class="modal-box">
+      <p id="mascot-question">Définir ce compagnon comme mascotte ?</p>
+      <div class="modal-actions">
+        <button id="confirm-mascot" class="btn-confirm">Oui, choisir</button>
+        <button id="cancel-mascot" class="btn-cancel">Annuler</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="collection-container">
+    <h2>🐾 Ma collection de compagnons</h2>
+    <div id="companions-grid" class="grid-companions"></div>
+  </main>
+
+  <footer>
+    <p>© 2025 JLPT Quest. Tous droits réservés.</p>
+  </footer>
+
+  <script src="../../Ressources/companions.js"></script>
+  <script src="collection.js"></script>
+  <script src="../../js/api.js"></script>
+</body>
+</html>

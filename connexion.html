@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Connexion - JLPT Quest</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🎌 JLPT Quest</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="inscription.html">S'inscrire</a></li>
+        <li><a href="connexion.html" class="active">Se connecter</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="form-container">
+    <h2>Connexion</h2>
+    <form id="login-form">
+      <label for="email">Adresse email</label>
+      <input type="email" id="email" required />
+
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" required />
+
+      <button type="submit">Se connecter</button>
+    </form>
+    <p id="login-message"></p>
+  </main>
+
+  <footer>
+    <p>© 2025 JLPT Quest. Tous droits réservés.</p>
+  </footer>
+
+  <script src="login.js"></script>
+  <script src="./js/api.js"></script>
+</body>
+</html>
