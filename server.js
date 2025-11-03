@@ -81,9 +81,16 @@ const JWT_SECRET = "super_secret_key"; // à mettre en variable d'environnement 
 // --- Routes ---
 
 // Test route
+const path = require("path");
+
+// Sert tous les fichiers statiques (HTML, CSS, JS, images)
+app.use(express.static(path.join(__dirname, "public"))); // ou juste __dirname si tes fichiers sont à la racine
+
+// Quand on va sur "/", on renvoie index.html
 app.get("/", (req, res) => {
-  res.send("✅ Hello World depuis ton API !");
+  res.sendFile(path.join(__dirname, "public", "index.html")); // adapte le chemin si besoin
 });
+
 
 // Inscription
 app.post("/api/register", async (req, res) => {
