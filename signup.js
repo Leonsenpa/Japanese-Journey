@@ -26,6 +26,8 @@ document.getElementById("signup-form").addEventListener("submit", async function
     const data = await response.json();
 
     if (response.ok) {
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("userId", data.userId);
       message.textContent = "Inscription réussie ! 🎉";
       message.style.color = "#2ecc71";
 

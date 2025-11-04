@@ -23,6 +23,7 @@ document.getElementById("login-form").addEventListener("submit", async function 
     if (response.ok) {
       // On sauvegarde le token JWT pour les futures requêtes
       localStorage.setItem("token", data.token);
+      localStorage.setItem("userId", data.userId);
 
       message.textContent = "✅ Connexion réussie !";
       message.style.color = "#2ecc71";
