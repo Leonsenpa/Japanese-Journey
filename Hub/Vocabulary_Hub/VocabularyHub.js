@@ -32,7 +32,7 @@ async function getCurrentUser() {
   const userId = localStorage.getItem("userId");
   if (!token || !userId) return null;
 
-  const response = await fetch(`http://localhost:3000/api/user/${userId}`, {
+  const response = await fetch(`/api/user/${userId}`, {
     headers: { Authorization: "Bearer " + token }
   });
   if (!response.ok) return null;
@@ -44,7 +44,7 @@ async function saveUser(updates) {
   const userId = localStorage.getItem("userId");
   if (!token || !userId) return;
 
-  const response = await fetch(`http://localhost:3000/api/user/${userId}`, {
+  const response = await fetch(`/api/user/${userId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

@@ -45,7 +45,7 @@ function showLoginForm() {
     const message = document.getElementById("login-message");
 
     try {
-      const response = await fetch("http://localhost:3000/api/login", {
+      const response = await fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })
@@ -85,7 +85,7 @@ async function showHomePage() {
   }
 
   try {
-    const response = await fetch(`http://localhost:3000/api/user/${userId}`, {
+    const response = await fetch(`/api/user/${userId}`, {
       headers: { Authorization: "Bearer " + token }
     });
 
