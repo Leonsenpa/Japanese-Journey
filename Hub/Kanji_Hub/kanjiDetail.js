@@ -88,10 +88,11 @@ function loadKanjiDetail() {
 
 function formatCooldown(kanji) {
   if (!kanji.lastReviewed || !kanji.cooldown) return "Disponible";
+  const cooldown = kanji.cooldown;
+  const last = new Date(kanji.lastReviewed).getTime();
+  const end = Date.now() - last;
 
-  const now = Date.now();
-  const end = kanji.lastReviewed + kanji.cooldown;
-  const remaining = end - now;
+  const remaining = cooldown - end;
 
   if (remaining <= 0) return "Disponible";
 
