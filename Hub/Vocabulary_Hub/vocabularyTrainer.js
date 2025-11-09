@@ -189,6 +189,7 @@ function renderLevel0(vocabulary) {
     <h2>Découverte du vocabulary</h2>
     <div id="kanji-card">
       <div id="kanji-char" style="font-size: 5rem;">${vocabulary.kanji}</div>
+      <p><strong>Avec les kana :</strong> ${vocabulary.kana}</p>
       <p><strong>Traduction :</strong> ${vocabulary.meaning}</p>
       <p id="kanji-mnemonic">${vocabulary.mnemonic}</p>
       <button id="next-btn">Suivant</button>
