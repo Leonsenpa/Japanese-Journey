@@ -269,7 +269,7 @@ function renderQCMRomajiToKana(kana) {
 
   const answers = shuffle([
     kana.kana,
-    ...shuffle(kanaData.filter(k => k.romaji !== kana.romaji)).slice(0, 1).map(k => k.kana)
+    ...shuffle(kanaData.filter(k => k.romaji !== kana.romaji)).slice(0, 3).map(k => k.kana)
   ]);
 
   container.innerHTML = `
