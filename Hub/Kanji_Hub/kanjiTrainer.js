@@ -334,7 +334,7 @@ function renderQCMReadingToKanji(kanji, onDone) {
   const answers = shuffle([
     kanji.kanji,
     ...shuffle(kanjiData.filter(k => k.kanji !== kanji.kanji && "kunReading : " + k.kunReading + "   onReading : " + k.onReading === "kunReading : " + kanji.kunReading + "   onReading : " + kanji.onReading)).slice(0, 1).map(k => k.kanji),
-    ...shuffle(kanjiData.filter(k => k.kanji !== kanji.kanji)).slice(0, 2).map(k => k.kanji)
+    ...shuffle(kanjiData.filter(k => k.kanji !== kanji.kanji)).slice(0, 3).map(k => k.kanji)
   ]);
 
   container.innerHTML = `
