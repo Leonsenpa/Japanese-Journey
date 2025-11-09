@@ -49,17 +49,17 @@ function getKanjiData(kanjiChar) {
   return kanjiData.find(k => k.kanji === kanjiChar);
 }
 
-function loadKanjiDetail() {
+async function loadKanjiDetail() {
+  const user = await getCurrentUser();
   const kanjiChar = getKanjiFromURL();
   const kanji = getKanjiData(kanjiChar);
 
-  if (!kanji) {
+  if (!kanji || !user.kanjiProgress[kanji.kanji]) {
     document.getElementById("kanji-detail").innerHTML = "<p>Kanji introuvable.</p>";
     return;
   }
 
-  const saved = JSON.parse(localStorage.getItem("kanjiProgress")) || [];
-  const savedKanji = saved.find(k => k.kanji === kanji.kanji);
+  const savedKanji = user.kanjiProgress[kanji.kanji]
   if (savedKanji) {
   kanji.level = savedKanji.level ?? 0;
   kanji.xp = savedKanji.xp ?? 0;
