@@ -105,8 +105,8 @@ function groupByAccessLevel(vocabularyData) {
 
   for (let i = 0; i < total; i++) {
     const groupe = i < surplusStart
-      ? Math.floor(i / groupSize) + 11
-      : 20;
+      ? Math.floor(i / groupSize) + 1
+      : 10;
 
     if (!groupes[groupe]) groupes[groupe] = [];
     groupes[groupe].push(vocabularyData[i]);
