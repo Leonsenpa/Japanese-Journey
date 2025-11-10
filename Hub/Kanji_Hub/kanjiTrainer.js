@@ -75,11 +75,11 @@ function getCooldownForLevel(level) {
 
 async function pickKanjiForUser() {
   const user = await getCurrentUser();
-  const niveauUtilisateur = user?.level || 1;
+  const niveauUtilisateur = user?.level_kanji || 0;
   const mode = getMode();
 
   const totalKanji = kanjiData.length;
-  const maxVisible = Math.floor((Math.min(niveauUtilisateur-10, 10) * totalKanji) / 10);
+  const maxVisible = Math.floor((Math.min(niveauUtilisateur, 10) * totalKanji) / 10);
 
   const accessibles = kanjiData.slice(0, maxVisible).filter(kanji => {
     if (!kanji.lastReviewed || !kanji.cooldown) return true;
@@ -106,17 +106,22 @@ function checkLevelUpUtilisateur() {
   const user = JSON.parse(localStorage.getItem(`user_${email}`));
 
   if (!user) return;
-  if (!user.level) user.level = 1;
+  if (!user.level_kanji) user.level_kanji = 1;
 
   const totalKanji = kanjiData.length;
-  const maxVisible = Math.floor((Math.min(user.level, 10) * totalKanji) / 10);
+  const maxVisible = Math.floor((Math.min(user.level_kanji, 10) * totalKanji) / 10);
   const kanjiVisibles = kanjiData.slice(0, maxVisible);
 
   const tousAuMoins5 = kanjiVisibles.every(kanji => (kanji.level || 0) >= 5);
-  if (tousAuMoins5 && user.level < 11) {
-    user.level += 1;
+  if (tousAuMoins5 && user.level_kanji < 11) {
+    user.level_kanji += 1;
     localStorage.setItem(`user_${email}`, JSON.stringify(user));
+    alert(`🎉 Ton niveau de kanji est passé au niveau ${user.level_kanji} !`);
+    if (user.level_vocabulary > user.level && user.level_kanji > user.level){
+      user.level += 1
+      localStorage.setItem(`user_${email}`, JSON.stringify(user));
     alert(`🎉 Tu es passé au niveau ${user.level} !`);
+    }
   }
 }
 
@@ -256,11 +261,11 @@ function renderQCMKanjiToReading(kanji, onDone) {
       if (rep === "kunReading : " + kanji.kunReading + "   onReading : " + kanji.onReading) {
         feedback.textContent = "✅ Bonne réponse !";
         feedback.className = "good";
-        gainXP(kanji, 10);
+        gainXP(kanji, 7.5);
       } else {
         feedback.textContent = `❌ Mauvaise réponse. Bonne réponse : “${"kunReading : " + kanji.kunReading + "   onReading : " + kanji.onReading}”.`;
         feedback.className = "bad";
-        loseXP(kanji, 5);
+        loseXP(kanji, 7.5);
       }
 
       nextBtn.classList.remove("hidden");
@@ -314,11 +319,11 @@ function renderQCMKanjiToMeaning(kanji, onDone) {
       if (rep === kanji.meaning) {
         feedback.textContent = "✅ Bonne réponse !";
         feedback.className = "good";
-        gainXP(kanji, 10);
+        gainXP(kanji, 7.5);
       } else {
         feedback.textContent = `❌ Mauvaise réponse. Bonne réponse : “${kanji.meaning}”.`;
         feedback.className = "bad";
-        loseXP(kanji, 5);
+        loseXP(kanji, 7.5);
       }
 
       nextBtn.classList.remove("hidden");
@@ -370,11 +375,11 @@ function renderQCMReadingToKanji(kanji, onDone) {
       if (rep === kanji.kanji) {
         feedback.textContent = "✅ Bonne réponse !";
         feedback.className = "good";
-        gainXP(kanji, 10);
+        gainXP(kanji, 7.5);
       } else {
         feedback.textContent = `❌ Mauvaise réponse. Bonne réponse : “${kanji.kanji}”.`;
         feedback.className = "bad";
-        loseXP(kanji, 5);
+        loseXP(kanji, 7.5);
       }
 
       nextBtn.classList.remove("hidden");
@@ -425,11 +430,11 @@ function renderQCMMeaningToKanji(kanji, onDone) {
       if (rep === kanji.kanji) {
         feedback.textContent = "✅ Bonne réponse !";
         feedback.className = "good";
-        gainXP(kanji, 10);
+        gainXP(kanji, 7.5);
       } else {
         feedback.textContent = `❌ Mauvaise réponse. Bonne réponse : “${kanji.kanji}”.`;
         feedback.className = "bad";
-        loseXP(kanji, 5);
+        loseXP(kanji, 7.5);
       }
 
       nextBtn.classList.remove("hidden");
@@ -495,7 +500,7 @@ function renderOpenReading(kanji, onDone) {
 
     feedback.innerHTML += `<p>✅ Tu as validé ta réponse comme correcte.</p>`;
     feedback.className = "good";
-    gainXP(kanji, 10);
+    gainXP(kanji, 7.5);
 
     selfEval.style.display = "none";
     nextBtn.style.display = "inline-block";
@@ -509,7 +514,7 @@ function renderOpenReading(kanji, onDone) {
 
     feedback.innerHTML += `<p>❌ Tu as indiqué que ta réponse était incorrecte.</p>`;
     feedback.className = "bad";
-    loseXP(kanji, 5);
+    loseXP(kanji, 7.5);
 
     selfEval.style.display = "none";
     nextBtn.style.display = "inline-block";
@@ -570,7 +575,7 @@ function renderOpenMeaning(kanji, onDone) {
 
     feedback.innerHTML += `<p>✅ Tu as validé ta réponse comme correcte.</p>`;
     feedback.className = "good";
-    gainXP(kanji, 10);
+    gainXP(kanji, 7.5);
 
     selfEval.style.display = "none";
     nextBtn.style.display = "inline-block";

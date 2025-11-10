@@ -38,6 +38,8 @@ const userSchema = new mongoose.Schema({
   xp: { type: Number, default: 0 },
   coins: { type: Number, default: 0 },
   level: { type: Number, default: 0 },
+  level_kanji: { type: Number, default: 0 },
+  level_vocabulary: { type: Number, default: 0 },
   unlockedCompanions: { type: [String], default: ["tanuki_basic"] },
   mainCompanion: { type: String, default: "tanuki_basic" },
   kanaProgress: {
@@ -92,7 +94,7 @@ function authenticateToken(req, res, next) {
 
 // Inscription
 app.post("/api/register", async (req, res) => {
-  const { username, email, password, level, coins, unlockedCompanions, mainCompanion } = req.body;
+  const { username, email, password, level, level_kanji, level_vocabulary, coins, unlockedCompanions, mainCompanion } = req.body;
 
   // Vérifie si l’email existe déjà
   const existingUser = await User.findOne({ email });
@@ -139,6 +141,8 @@ app.post("/api/register", async (req, res) => {
     email,
     passwordHash: hashedPassword,
     level: level ?? 0,
+    level_kanji: level_kanji ?? 0,
+    level_vocabulary: level_vocabulary ?? 0,
     coins: coins ?? 0,
     unlockedCompanions: unlockedCompanions ?? ["tanuki_basic"],
     mainCompanion: mainCompanion ?? "tanuki_basic",

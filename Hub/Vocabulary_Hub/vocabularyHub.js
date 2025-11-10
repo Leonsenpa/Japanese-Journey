@@ -61,7 +61,7 @@ async function mountHeaderUserInfo() {
   if (!user) return;
 
   document.getElementById("user-name").textContent = user.username;
-  document.getElementById("user-level").textContent = `Niveau ${user.level}`;
+  document.getElementById("user-level").textContent = `Niveau de Vocabulaire ${user.level_vocabulary}`;
   document.getElementById("user-coins").textContent = user.coins;
   document.getElementById("user-companion").src = `../../companions/${user.mainCompanion}.png`;
 
@@ -70,7 +70,7 @@ async function mountHeaderUserInfo() {
 document.addEventListener("DOMContentLoaded", mountHeaderUserInfo);
 
 function getVocabularyPerLevel(totalVocabulary, niveauUtilisateur) {
-  const percent = Math.max(Math.min(niveauUtilisateur, 20)-10, 0) * 10;
+  const percent = Math.min(niveauUtilisateur, 10) * 10;
   return Math.floor((percent / 100) * totalVocabulary);
 }
 
@@ -120,7 +120,7 @@ const groupes = groupByAccessLevel(vocabularyData);
 
 async function renderVocabularyList() {
   const user = await getCurrentUser();
-  const niveauUtilisateur = user.level || 1;
+  const niveauUtilisateur = user.level_vocabulary || 0;
   const container = document.getElementById("vocabulary-list");
   container.innerHTML = "";
 
@@ -130,7 +130,7 @@ async function renderVocabularyList() {
 
   const groupes = groupByAccessLevel(vocabularyData, Math.ceil(totalVocabulary / 10));
 
-  for (let niveau = 11; niveau <= 20; niveau++) {
+  for (let niveau = 1; niveau <= 10; niveau++) {
     const section = document.createElement("section");
     const titre = document.createElement("h3");
     titre.textContent = `Cartes débloquées au niveau ${niveau} :`;
@@ -166,11 +166,10 @@ function isAvailable(vocabulary) {
 
 async function updateExerciseButtons() {
   const user = await getCurrentUser();
-  const niveauUtilisateur = user.level || 1;
+  const niveauUtilisateur = user.level_vocabulary || 0;
   const totalVocabulary = vocabularyData.length;
-  const maxVisible = Math.floor((Math.min(niveauUtilisateur-10, 10) * totalVocabulary) / 10);
+  const maxVisible = Math.floor((Math.min(niveauUtilisateur, 10) * totalVocabulary) / 10);
   const accessibles = vocabularyData.slice(0, maxVisible);
-
   const disponibles = accessibles.filter(k => isAvailable(k));
   const nbDecouverte = disponibles.filter(k => k.level === 0).length;
   const nbEvolution = disponibles.filter(k => k.level > 0).length;

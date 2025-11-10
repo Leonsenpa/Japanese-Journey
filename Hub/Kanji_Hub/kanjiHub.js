@@ -61,7 +61,7 @@ async function mountHeaderUserInfo() {
   if (!user) return;
 
   document.getElementById("user-name").textContent = user.username;
-  document.getElementById("user-level").textContent = `Niveau ${user.level}`;
+  document.getElementById("user-level").textContent = `Niveau de Kanji${user.level_kanji}`;
   document.getElementById("user-coins").textContent = user.coins;
   document.getElementById("user-companion").src = `../../companions/${user.mainCompanion}.png`;
 
@@ -119,7 +119,7 @@ const groupes = groupByAccessLevel(kanjiData);
 
 async function renderKanjiList() {
   const user = await getCurrentUser();
-  const niveauUtilisateur = user.level || 1;
+  const niveauUtilisateur = user.level_kanji || 1;
   const container = document.getElementById("kanji-list");
   container.innerHTML = "";
 
@@ -129,7 +129,7 @@ async function renderKanjiList() {
 
   const groupes = groupByAccessLevel(kanjiData, Math.ceil(totalKanji / 10));
 
-  for (let niveau = 11; niveau <= 20; niveau++) {
+  for (let niveau = 1; niveau <= 10; niveau++) {
     const section = document.createElement("section");
     const titre = document.createElement("h3");
     titre.textContent = `Cartes débloquées (niveau ${niveau}) :`;
@@ -165,11 +165,10 @@ function isAvailable(kanji) {
 
 async function updateExerciseButtons() {
   const user = await getCurrentUser();
-  const niveauUtilisateur = user.level || 1;
+  const niveauUtilisateur = user.level_kanji || 1;
   const totalKanji = kanjiData.length;
-  const maxVisible = Math.floor((Math.min(niveauUtilisateur-10, 10) * totalKanji) / 10);
+  const maxVisible = Math.floor((Math.min(niveauUtilisateur, 10) * totalKanji) / 10);
   const accessibles = kanjiData.slice(0, maxVisible);
-
   const disponibles = accessibles.filter(k => isAvailable(k));
   const nbDecouverte = disponibles.filter(k => k.level === 0).length;
   const nbEvolution = disponibles.filter(k => k.level > 0).length;

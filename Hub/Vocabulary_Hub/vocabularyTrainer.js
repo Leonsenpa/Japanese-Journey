@@ -71,11 +71,11 @@ function getCooldownForLevel(level) {
 
 async function pickVocabularyForUser() {
   const user = await getCurrentUser();
-  const niveauUtilisateur = user?.level || 1;
+  const niveauUtilisateur = user?.level_vocabulary || 1;
   const mode = getMode();
 
   const totalVocabulary = vocabularyData.length;
-  const maxVisible = Math.floor((Math.min(niveauUtilisateur-10, 10) * totalVocabulary) / 10);
+  const maxVisible = Math.floor((Math.min(niveauUtilisateur, 10) * totalVocabulary) / 10);
 
   const accessibles = vocabularyData.slice(0, maxVisible).filter(vocabulary => {
     if (!vocabulary.lastReviewed || !vocabulary.cooldown) return true;
@@ -102,17 +102,22 @@ function checkLevelUpUtilisateur() {
   const user = JSON.parse(localStorage.getItem(`user_${email}`));
 
   if (!user) return;
-  if (!user.level) user.level = 1;
+  if (!user.level_vocabulary) user.level_vocabulary = 1;
 
   const totalVocabulary = vocabularyData.length;
-  const maxVisible = Math.floor((Math.min(user.level, 10) * totalVocabulary) / 10);
+  const maxVisible = Math.floor((Math.min(user.level_vocabulary, 10) * totalVocabulary) / 10);
   const vocabularyVisibles = vocabularyData.slice(0, maxVisible);
 
   const tousAuMoins5 = vocabularyVisibles.every(vocabulary => (vocabulary.level || 0) >= 5);
-  if (tousAuMoins5 && user.level < 11) {
-    user.level += 1;
+  if (tousAuMoins5 && user.level_vocabulary < 11) {
+    user.level_vocabulary += 1;
     localStorage.setItem(`user_${email}`, JSON.stringify(user));
+    alert(`🎉 Ton niveau de vocabulaire est passé au niveau ${user.level_vocabulary} !`);
+    if (user.level_vocabulary > user.level && user.level_kanji > user.level){
+      user.level += 1
+      localStorage.setItem(`user_${email}`, JSON.stringify(user));
     alert(`🎉 Tu es passé au niveau ${user.level} !`);
+    }
   }
 }
 
@@ -252,11 +257,11 @@ function renderQCMVocabularyToTrad(vocabulary) {
       if (rep === vocabulary.meaning) {
         feedback.textContent = "✅ Bonne réponse !";
         feedback.className = "good";
-        gainXP(vocabulary, 10);
+        gainXP(vocabulary, 15);
       } else {
         feedback.textContent = `❌ Mauvaise réponse. Bonne réponse : “${vocabulary.meaning}”.`;
         feedback.className = "bad";
-        loseXP(vocabulary, 5);
+        loseXP(vocabulary, 15);
       }
 
       nextBtn.classList.remove("hidden");
@@ -308,11 +313,11 @@ function renderQCMTradToVocabulary(vocabulary) {
       if (rep === vocabulary.kanji) {
         feedback.textContent = "✅ Bonne réponse !";
         feedback.className = "good";
-        gainXP(vocabulary, 10);
+        gainXP(vocabulary, 15);
       } else {
         feedback.textContent = `❌ Mauvaise réponse. Bonne réponse : “${vocabulary.kanji}”.`;
         feedback.className = "bad";
-        loseXP(vocabulary, 5);
+        loseXP(vocabulary, 15);
       }
 
       nextBtn.classList.remove("hidden");
@@ -351,12 +356,12 @@ function renderOpenInput(vocabulary) {
     if (ok) {
       feedback.textContent = "✅ Bonne réponse !";
       feedback.className = "good";
-      gainXP(vocabulary, 10);
+      gainXP(vocabulary, 15);
     } 
     else {
       feedback.textContent = `❌ Mauvaise réponse. Solution attendue : ${vocabulary.meaning}`;
       feedback.className = "bad";
-      loseXP(vocabulary, 5);
+      loseXP(vocabulary, 15);
     }
 
     input.disabled = true;

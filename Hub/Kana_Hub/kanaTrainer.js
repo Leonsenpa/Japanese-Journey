@@ -112,6 +112,12 @@ function checkLevelUpUtilisateur() {
     user.level += 1;
     localStorage.setItem(`user_${email}`, JSON.stringify(user));
     alert(`🎉 Tu es passé au niveau ${user.level} !`);
+    if (user.level == 11){
+      user.level_kanji = 1
+      user.level_vocabulary = 1
+      localStorage.setItem(`user_${email}`, JSON.stringify(user));
+    alert(`🎉 Tu as débloqué le kanji et le vocabulaire !`);
+    }
   }
 }
 
@@ -249,11 +255,11 @@ function renderQCMKanaToRomaji(kana) {
       if (rep === kana.romaji) {
         feedback.textContent = "✅ Bonne réponse !";
         feedback.className = "good";
-        gainXP(kana, 10);
+        gainXP(kana, 15);
       } else {
         feedback.textContent = `❌ Mauvaise réponse. Bonne réponse : “${kana.romaji}”.`;
         feedback.className = "bad";
-        loseXP(kana, 5);
+        loseXP(kana, 15);
       }
 
       // Bouton Suivant
@@ -305,11 +311,11 @@ function renderQCMRomajiToKana(kana) {
       if (rep === kana.kana) {
         feedback.textContent = "✅ Bonne réponse !";
         feedback.className = "good";
-        gainXP(kana, 10);
+        gainXP(kana, 15);
       } else {
         feedback.textContent = `❌ Mauvaise réponse. Bonne réponse : “${kana.kana}”.`;
         feedback.className = "bad";
-        loseXP(kana, 5);
+        loseXP(kana, 15);
       }
 
       nextBtn.classList.remove("hidden");
@@ -348,12 +354,12 @@ function renderOpenInput(kana) {
     if (ok) {
       feedback.textContent = "✅ Bonne réponse !";
       feedback.className = "good";
-      gainXP(kana, 10);
+      gainXP(kana, 15);
     } 
     else {
       feedback.textContent = `❌ Mauvaise réponse. Solution attendue : ${kana.romaji}`;
       feedback.className = "bad";
-      loseXP(kana, 5);
+      loseXP(kana, 15);
     }
 
     // lock input

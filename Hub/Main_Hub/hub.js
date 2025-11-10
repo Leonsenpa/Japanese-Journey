@@ -72,6 +72,8 @@ async function maybeShowFirstLoginOnboarding() {
   // Gestion boutons
   yesBtn.onclick = () => {
     user.level = 11; // commence directement sur le contenu au-delà des kana
+    user.level_vocabulary = 1;
+    user.level_kanji = 1;
     user.onboarding = user.onboarding || {};
     user.onboarding.firstLoginDone = true;
     user.onboarding.kanaKnown = true;
