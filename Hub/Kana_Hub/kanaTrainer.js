@@ -114,6 +114,7 @@ async function checkLevelUpUtilisateur() {
       alert(`🎉 Tu as débloqué le kanji et le vocabulaire !`);
     }
   }
+  saveUser(user)
 }
 
 async function loadKanaProgress() {
