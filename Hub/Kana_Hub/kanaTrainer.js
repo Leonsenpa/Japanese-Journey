@@ -198,7 +198,7 @@ function renderLevel0(kana) {
 
   const nextBtn = document.getElementById("next-btn");
   nextBtn.addEventListener("click", () => {
-    kana.level = 1;
+    kana.level = 5;
     kana.xp = 0;
     kana.lastReviewed = Date.now(); // number
     kana.cooldown = getCooldownForLevel(1);
