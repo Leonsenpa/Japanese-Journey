@@ -96,27 +96,22 @@ async function pickKanaForUser() {
   return filteredKana[Math.floor(Math.random() * filteredKana.length)];
 }
 
-function checkLevelUpUtilisateur() {
-  const email = localStorage.getItem("currentUser");
-  const user = JSON.parse(localStorage.getItem(`user_${email}`));
-
-  if (!user) return;
-  if (!user.level) user.level = 1;
+async function checkLevelUpUtilisateur() {
+  const user =  await getCurrentUser();
+  const niveauUtilisateur = user?.level || 1;
 
   const totalKana = kanaData.length;
-  const maxVisible = Math.floor((Math.min(user.level, 10) * totalKana) / 10);
+  const maxVisible = Math.floor((Math.min(niveauUtilisateur, 10) * totalKana) / 10);
   const kanaVisibles = kanaData.slice(0, maxVisible);
 
   const tousAuMoins5 = kanaVisibles.every(kana => (kana.level || 0) >= 5);
   if (tousAuMoins5 && user.level < 11) {
     user.level += 1;
-    localStorage.setItem(`user_${email}`, JSON.stringify(user));
     alert(`🎉 Tu es passé au niveau ${user.level} !`);
     if (user.level == 11){
       user.level_kanji = 1
       user.level_vocabulary = 1
-      localStorage.setItem(`user_${email}`, JSON.stringify(user));
-    alert(`🎉 Tu as débloqué le kanji et le vocabulaire !`);
+      alert(`🎉 Tu as débloqué le kanji et le vocabulaire !`);
     }
   }
 }
