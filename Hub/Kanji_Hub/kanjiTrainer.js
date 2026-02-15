@@ -198,8 +198,6 @@ function renderLevel0(kanji) {
     <h2>Découverte du kanji</h2>
     <div id="kanji-card">
       <div id="kanji-char" style="font-size: 5rem;">${kanji.kanji}</div>
-      <p><strong>Lecture onyomi :</strong> ${kanji.onReading}</p>
-      <p><strong>Lecture kunyomi :</strong> ${kanji.kunReading}</p>
       <p><strong>Signification :</strong> ${kanji.meaning}</p>
       <p id="kanji-mnemonic">${kanji.mnemonic}</p>
       <button id="next-btn">Suivant</button>
@@ -214,64 +212,6 @@ function renderLevel0(kanji) {
     kanji.cooldown = getCooldownForLevel(1);
     saveKanjiProgress();
     showNextQuestion();
-  });
-}
-
-function renderQCMKanjiToReading(kanji, onDone) {
-  const container = document.getElementById("quiz-container");
-
-  const answers = shuffle([
-    "kunReading : " + kanji.kunReading + "   onReading : " + kanji.onReading,
-    ...shuffle(kanjiData.filter(k => k.kunReading + k.onReading !== kanji.kunReading + kanji.onReading)).slice(0, 3).map(k => "kunReading : " + k.kunReading + "   onReading : " + k.onReading)
-  ]);
-
-  container.innerHTML = `
-    <h2>Quelle est la prononciation de ce kanji ?</h2>
-    <div id="kanji-card">
-      <div id="kanji-char" style="font-size: 5rem;">${kanji.kanji}</div>
-      <div id="answers"></div>
-      <div id="feedback"></div>
-      <button id="next-btn" class="next-btn hidden">Suivant →</button>
-    </div>
-  `;
-
-  const answerDiv = document.getElementById("answers");
-  const feedback  = document.getElementById("feedback");
-  const nextBtn   = document.getElementById("next-btn");
-
-  let answered = false;
-
-  answers.forEach(rep => {
-    const btn = document.createElement("button");
-    btn.textContent = rep;
-    btn.type = "button";
-    btn.className = "answer-btn";
-    btn.onclick = () => {
-      if (answered) return;
-      answered = true;
-
-      const btns = Array.from(answerDiv.querySelectorAll(".answer-btn"));
-      btns.forEach(b => {
-        b.classList.add("locked");
-        const isCorrect = b.textContent === "kunReading : " + kanji.kunReading + "   onReading : " + kanji.onReading;
-        if (isCorrect) b.classList.add("correct");
-        if (!isCorrect && b === btn) b.classList.add("wrong");
-      });
-
-      if (rep === "kunReading : " + kanji.kunReading + "   onReading : " + kanji.onReading) {
-        feedback.textContent = "✅ Bonne réponse !";
-        feedback.className = "good";
-        gainXP(kanji, 7.5);
-      } else {
-        feedback.textContent = `❌ Mauvaise réponse. Bonne réponse : “${"kunReading : " + kanji.kunReading + "   onReading : " + kanji.onReading}”.`;
-        feedback.className = "bad";
-        loseXP(kanji, 7.5);
-      }
-
-      nextBtn.classList.remove("hidden");
-      nextBtn.onclick = (e) => { e.preventDefault(); onDone(); };
-    };
-    answerDiv.appendChild(btn);
   });
 }
 
@@ -322,62 +262,6 @@ function renderQCMKanjiToMeaning(kanji, onDone) {
         gainXP(kanji, 7.5);
       } else {
         feedback.textContent = `❌ Mauvaise réponse. Bonne réponse : “${kanji.meaning}”.`;
-        feedback.className = "bad";
-        loseXP(kanji, 7.5);
-      }
-
-      nextBtn.classList.remove("hidden");
-      nextBtn.onclick = (e) => { e.preventDefault(); onDone(); };
-    };
-    answerDiv.appendChild(btn);
-  });
-}
-
-function renderQCMReadingToKanji(kanji, onDone) {
-  const container = document.getElementById("quiz-container");
-
-  const answers = shuffle([
-    kanji.kanji,
-    ...shuffle(kanjiData.filter(k => k.kanji !== kanji.kanji && "kunReading : " + k.kunReading + "   onReading : " + k.onReading === "kunReading : " + kanji.kunReading + "   onReading : " + kanji.onReading)).slice(0, 1).map(k => k.kanji),
-    ...shuffle(kanjiData.filter(k => k.kanji !== kanji.kanji)).slice(0, 3).map(k => k.kanji)
-  ]);
-
-  container.innerHTML = `
-    <h2>Quel kanji correspond à : ${"kunReading : " + kanji.kunReading + "   onReading : " + kanji.onReading} ?</h2>
-    <div id="answers"></div>
-    <div id="feedback"></div>
-    <button id="next-btn" class="next-btn hidden">Suivant →</button>
-  `;
-
-  const answerDiv = document.getElementById("answers");
-  const feedback  = document.getElementById("feedback");
-  const nextBtn   = document.getElementById("next-btn");
-
-  let answered = false;
-
-  answers.forEach(rep => {
-    const btn = document.createElement("button");
-    btn.textContent = rep;
-    btn.type = "button";
-    btn.className = "answer-btn";
-    btn.onclick = () => {
-      if (answered) return;
-      answered = true;
-
-      const btns = Array.from(answerDiv.querySelectorAll(".answer-btn"));
-      btns.forEach(b => {
-        b.classList.add("locked");
-        const isCorrect = b.textContent === kanji.kanji;
-        if (isCorrect) b.classList.add("correct");
-        if (!isCorrect && b === btn) b.classList.add("wrong");
-      });
-
-      if (rep === kanji.kanji) {
-        feedback.textContent = "✅ Bonne réponse !";
-        feedback.className = "good";
-        gainXP(kanji, 7.5);
-      } else {
-        feedback.textContent = `❌ Mauvaise réponse. Bonne réponse : “${kanji.kanji}”.`;
         feedback.className = "bad";
         loseXP(kanji, 7.5);
       }
@@ -441,84 +325,6 @@ function renderQCMMeaningToKanji(kanji, onDone) {
       nextBtn.onclick = (e) => { e.preventDefault(); onDone(); };
     };
     answerDiv.appendChild(btn);
-  });
-}
-
-function renderOpenReading(kanji, onDone) {
-  const container = document.getElementById("quiz-container");
-  container.innerHTML = `
-    <h2>Quelle est la prononciation de ce kanji ?</h2>
-    <div id="kanji-char" style="font-size: 5rem;">${kanji.kanji}</div>
-    <input type="text" id="kanji-input" placeholder="Écris la lecture (ou les lectures) en romaji" />
-    <button id="show-solution-btn">Voir la solution</button>
-    <div id="feedback"></div>
-    <div id="self-eval" style="display:none; margin-top:0.5rem;">
-      <p>Est-ce que tu considères ta réponse correcte ?</p>
-      <button id="self-correct-btn">Oui, j'avais juste</button>
-      <button id="self-wrong-btn">Non, je me suis trompé</button>
-    </div>
-    <button id="next-btn" class="next-btn" style="display:none; margin-top:0.5rem;">Suivant →</button>
-  `;
-
-  const input       = document.getElementById("kanji-input");
-  const showSolutionBtn = document.getElementById("show-solution-btn");
-  const feedback    = document.getElementById("feedback");
-  const selfEval    = document.getElementById("self-eval");
-  const selfCorrect = document.getElementById("self-correct-btn");
-  const selfWrong   = document.getElementById("self-wrong-btn");
-  const nextBtn     = document.getElementById("next-btn");
-
-  let solutionShown = false;
-  let judged = false;
-
-  showSolutionBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (solutionShown) return;
-    solutionShown = true;
-
-    const val = input.value || "(vide)";
-
-    // On lock l'input et le bouton
-    input.disabled = true;
-    showSolutionBtn.disabled = true;
-
-    // On affiche la réponse de l’utilisateur + les lectures possibles
-    feedback.innerHTML = `
-      <p>Ta réponse : <strong>${val}</strong></p>
-      <p>Lectures possibles : <strong>${"kunReading : " + kanji.kunReading + "   onReading : " + kanji.onReading}</strong></p>
-    `;
-    feedback.className = ""; // reset couleur
-
-    // On affiche la zone d'auto-évaluation
-    selfEval.style.display = "block";
-  });
-
-  selfCorrect.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (judged) return;
-    judged = true;
-
-    feedback.innerHTML += `<p>✅ Tu as validé ta réponse comme correcte.</p>`;
-    feedback.className = "good";
-    gainXP(kanji, 7.5);
-
-    selfEval.style.display = "none";
-    nextBtn.style.display = "inline-block";
-    nextBtn.onclick = (e2) => { e2.preventDefault(); onDone(); };
-  });
-
-  selfWrong.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (judged) return;
-    judged = true;
-
-    feedback.innerHTML += `<p>❌ Tu as indiqué que ta réponse était incorrecte.</p>`;
-    feedback.className = "bad";
-    loseXP(kanji, 7.5);
-
-    selfEval.style.display = "none";
-    nextBtn.style.display = "inline-block";
-    nextBtn.onclick = (e2) => { e2.preventDefault(); onDone(); };
   });
 }
 
@@ -608,22 +414,16 @@ async function showNextQuestion() {
   if (level === 0) {
     renderLevel0(kanji);
   } else if (level <= 2) {
-    renderQCMKanjiToReading(kanji, () => {
-      renderQCMKanjiToMeaning(kanji, () => {
-        showNextQuestion();
-      });
+    renderQCMKanjiToMeaning(kanji, () => {
+      showNextQuestion();
     });
   } else if (level <= 4) {
-    renderQCMReadingToKanji(kanji, () => {
-      renderQCMMeaningToKanji(kanji, () => {
-        showNextQuestion();
-      });
+    renderQCMMeaningToKanji(kanji, () => {
+      showNextQuestion();
     });
   } else {
-    renderOpenReading(kanji, () => {
-      renderOpenMeaning(kanji, () => {
-        showNextQuestion();
-      });
+    renderOpenMeaning(kanji, () => {
+      showNextQuestion();
     });
   }
 }

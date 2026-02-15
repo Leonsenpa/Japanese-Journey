@@ -818,13 +818,13 @@ const kanjiData = [
     "xp": 0
   },
   {
-    "kanji": "先",
+    "kanji": "前",
     "meaning": "avant, devant",
     "onReading": [
-      "セン"
+      "ゼン"
     ],
     "kunReading": [
-      "さき"
+      "まえ"
     ],
     "mnemonic": "",
     "level": 0,
@@ -1606,6 +1606,1128 @@ const kanjiData = [
     ],
     "kunReading": [
       "もと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+];
+
+const kanjiData_n4 = [
+  {
+    "kanji": "同",
+    "meaning": "même, égal, d'accord",
+    "onReading": [
+      "ドウ"
+    ],
+    "kunReading": [
+      "おなじ"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+  "kanji": "事",
+  "meaning": "chose, affaire, événement, fait",
+  "onReading": [
+    "ジ",
+    "ズ"
+  ],
+  "kunReading": [
+    "こと"
+  ],
+  "mnemonic": "",
+  "level": 0,
+  "lastReviewed": null,
+  "cooldown": 0,
+  "xp": 0
+  },
+  {
+  "kanji": "自",
+  "meaning": "soi-même, personnel, depuis",
+  "onReading": [
+    "ジ",
+    "シ"
+  ],
+  "kunReading": [
+    "みずか-ら"
+  ],
+  "mnemonic": "",
+  "level": 0,
+  "lastReviewed": null,
+  "cooldown": 0,
+  "xp": 0
+  },
+  {
+  "kanji": "発",
+  "meaning": "départ, émettre, se produire, départir",
+  "onReading": [
+    "ハツ",
+    "ホツ"
+  ],
+  "kunReading": [
+    "た-つ",
+    "あば-く",
+    "おこ-る"
+  ],
+  "mnemonic": "",
+  "level": 0,
+  "lastReviewed": null,
+  "cooldown": 0,
+  "xp": 0
+  },
+  {
+  "kanji": "者",
+  "meaning": "personne, quelqu’un, celui qui",
+  "onReading": [
+    "シャ"
+  ],
+  "kunReading": [
+    "もの"
+  ],
+  "mnemonic": "",
+  "level": 0,
+  "lastReviewed": null,
+  "cooldown": 0,
+  "xp": 0
+  },
+  {
+  "kanji": "地",
+  "meaning": "terre, sol, terrain, lieu",
+  "onReading": [
+    "チ",
+    "ジ"
+  ],
+  "kunReading": [
+    ""
+  ],
+  "mnemonic": "",
+  "level": 0,
+  "lastReviewed": null,
+  "cooldown": 0,
+  "xp": 0
+  },
+  {
+  "kanji": "業",
+  "meaning": "travail, tâche, métier, karma",
+  "onReading": [
+    "ギョウ",
+    "ゴウ"
+  ],
+  "kunReading": [
+    "わざ"
+  ],
+  "mnemonic": "",
+  "level": 0,
+  "lastReviewed": null,
+  "cooldown": 0,
+  "xp": 0
+  },
+  {
+  "kanji": "方",
+  "meaning": "direction, manière, personne (polie)",
+  "onReading": [
+    "ホウ"
+  ],
+  "kunReading": [
+    "かた"
+  ],
+  "mnemonic": "",
+  "level": 0,
+  "lastReviewed": null,
+  "cooldown": 0,
+  "xp": 0
+  },
+  {
+  "kanji": "場",
+  "meaning": "lieu, endroit, scène, champ",
+  "onReading": [
+    "ジョウ"
+  ],
+  "kunReading": [
+    "ば"
+  ],
+  "mnemonic": "",
+  "level": 0,
+  "lastReviewed": null,
+  "cooldown": 0,
+  "xp": 0
+  },
+  {
+  "kanji": "員",
+  "meaning": "membre, employé, personnel",
+  "onReading": [
+    "イン"
+  ],
+  "kunReading": [
+    ""
+  ],
+  "mnemonic": "",
+  "level": 0,
+  "lastReviewed": null,
+  "cooldown": 0,
+  "xp": 0
+  },
+  {
+  "kanji": "開",
+  "meaning": "ouvrir, s’ouvrir",
+  "onReading": [
+    "カイ"
+  ],
+  "kunReading": [
+    "ひら-く",
+    "あ-く",
+    "あ-ける"
+  ],
+  "mnemonic": "",
+  "level": 0,
+  "lastReviewed": null,
+  "cooldown": 0,
+  "xp": 0
+  },
+  {
+  "kanji": "力",
+  "meaning": "force, pouvoir, énergie, capacité",
+  "onReading": [
+    "リョク",
+    "リキ"
+  ],
+  "kunReading": [
+    "ちから"
+  ],
+  "mnemonic": "",
+  "level": 0,
+  "lastReviewed": null,
+  "cooldown": 0,
+  "xp": 0
+  },
+  {
+  "kanji": "問",
+  "meaning": "question, demander, problème",
+  "onReading": [
+    "モン"
+  ],
+  "kunReading": [
+    "と-う",
+    "と-い",
+    "とん"
+  ],
+  "mnemonic": "",
+  "level": 0,
+  "lastReviewed": null,
+  "cooldown": 0,
+  "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
+    ],
+    "mnemonic": "",
+    "level": 0,
+    "lastReviewed": null,
+    "cooldown": 0,
+    "xp": 0
+  },
+  {
+    "kanji": "同",
+    "meaning": "un",
+    "onReading": [
+      "ドウ",
+      "イツ"
+    ],
+    "kunReading": [
+      "ひと"
     ],
     "mnemonic": "",
     "level": 0,
