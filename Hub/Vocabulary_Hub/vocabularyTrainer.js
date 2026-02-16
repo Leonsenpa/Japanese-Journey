@@ -97,28 +97,24 @@ async function pickVocabularyForUser() {
   return filteredVocabulary[Math.floor(Math.random() * filteredVocabulary.length)];
 }
 
-function checkLevelUpUtilisateur() {
-  const email = localStorage.getItem("currentUser");
-  const user = JSON.parse(localStorage.getItem(`user_${email}`));
-
-  if (!user) return;
-  if (!user.level_vocabulary) user.level_vocabulary = 1;
+async function checkLevelUpUtilisateur() {
+  const user = await getCurrentUser();
+  const niveauUtilisateurVocabulary = user?.level_vocabulary || 1;
 
   const totalVocabulary = vocabularyData.length;
-  const maxVisible = Math.floor((Math.min(user.level_vocabulary, 10) * totalVocabulary) / 10);
+  const maxVisible = Math.floor((Math.min(niveauUtilisateurVocabulary, 10) * totalVocabulary) / 10);
   const vocabularyVisibles = vocabularyData.slice(0, maxVisible);
 
   const tousAuMoins5 = vocabularyVisibles.every(vocabulary => (vocabulary.level || 0) >= 5);
   if (tousAuMoins5 && user.level_vocabulary < 11) {
     user.level_vocabulary += 1;
-    localStorage.setItem(`user_${email}`, JSON.stringify(user));
     alert(`🎉 Ton niveau de vocabulaire est passé au niveau ${user.level_vocabulary} !`);
     if (user.level_vocabulary > user.level && user.level_kanji > user.level){
       user.level += 1
-      localStorage.setItem(`user_${email}`, JSON.stringify(user));
     alert(`🎉 Tu es passé au niveau ${user.level} !`);
     }
   }
+  saveUser
 }
 
 async function loadVocabularyProgress() {
