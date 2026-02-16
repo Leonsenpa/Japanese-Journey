@@ -119,6 +119,7 @@ async function checkLevelUpUtilisateur() {
     alert(`🎉 Tu es passé au niveau ${user.level} !`);
     }
   }
+  saveUser
 }
 
 async function loadKanjiProgress() {
