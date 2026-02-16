@@ -101,21 +101,17 @@ async function pickKanjiForUser() {
   return filteredKanji[Math.floor(Math.random() * filteredKanji.length)];
 }
 
-function checkLevelUpUtilisateur() {
-  const email = localStorage.getItem("currentUser");
-  const user = JSON.parse(localStorage.getItem(`user_${email}`));
-
-  if (!user) return;
-  if (!user.level_kanji) user.level_kanji = 1;
+async function checkLevelUpUtilisateur() {
+  const user = await getCurrentUser();
+  const niveauUtilisateurKanji = user?.level_kanji || 1;
 
   const totalKanji = kanjiData.length;
-  const maxVisible = Math.floor((Math.min(user.level_kanji, 10) * totalKanji) / 10);
+  const maxVisible = Math.floor((Math.min(niveauUtilisateurKanji, 10) * totalKanji) / 10);
   const kanjiVisibles = kanjiData.slice(0, maxVisible);
 
   const tousAuMoins5 = kanjiVisibles.every(kanji => (kanji.level || 0) >= 5);
   if (tousAuMoins5 && user.level_kanji < 11) {
     user.level_kanji += 1;
-    localStorage.setItem(`user_${email}`, JSON.stringify(user));
     alert(`🎉 Ton niveau de kanji est passé au niveau ${user.level_kanji} !`);
     if (user.level_vocabulary > user.level && user.level_kanji > user.level){
       user.level += 1
