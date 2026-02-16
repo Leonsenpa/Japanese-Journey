@@ -115,11 +115,10 @@ async function checkLevelUpUtilisateur() {
     alert(`🎉 Ton niveau de kanji est passé au niveau ${user.level_kanji} !`);
     if (user.level_vocabulary > user.level && user.level_kanji > user.level){
       user.level += 1
-      localStorage.setItem(`user_${email}`, JSON.stringify(user));
     alert(`🎉 Tu es passé au niveau ${user.level} !`);
     }
   }
-  saveUser
+  saveUser(user)
 }
 
 async function loadKanjiProgress() {
