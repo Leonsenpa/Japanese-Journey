@@ -96,7 +96,7 @@ function groupByAccessLevel(kanjiData) {
   const total = kanjiData.length;
 
   for (let i = 0; i < total; i++) {
-    if (!groupes[kanjiData[i].unlocked_level]) groupes[groupe] = [];
+    if (!groupes[kanjiData[i].unlocked_level]) groupes[kanjiData[i].unlocked_level] = [];
     groupes[groupe].push(kanjiData[i]);
   }
 
