@@ -125,7 +125,7 @@ async function renderKanjiList() {
 
     const cartes = groupes[niveau] || [];
     cartes.forEach(kanji => {
-      const accessible = kanji.unlocked_level >= niveauUtilisateur;
+      const accessible = kanji.unlocked_level <= niveauUtilisateur;
       cards.appendChild(createKanjiCard(kanji, accessible));
     });
 
