@@ -69,11 +69,6 @@ async function mountHeaderUserInfo() {
 
 document.addEventListener("DOMContentLoaded", mountHeaderUserInfo);
 
-function getKanjiPerLevel(totalKanji, niveauUtilisateur) {
-  const percent = Math.min(niveauUtilisateur, 10) * 10;
-  return Math.floor((percent / 100) * totalKanji);
-}
-
 function createKanjiCard(kanji, accessible) {
   const div = document.createElement("div");
   div.classList.add("kanji-card");
@@ -95,25 +90,19 @@ function createKanjiCard(kanji, accessible) {
   return div;
 }
 
-
+///
 function groupByAccessLevel(kanjiData) {
   const groupes = {};
   const total = kanjiData.length;
-  const groupSize = Math.floor(total / 10);
-  const surplusStart = groupSize * 9;
 
   for (let i = 0; i < total; i++) {
-    const groupe = i < surplusStart
-      ? Math.floor(i / groupSize) + 1
-      : 10;
-
-    if (!groupes[groupe]) groupes[groupe] = [];
+    if (!groupes[kanjiData[i].unlocked_level]) groupes[groupe] = [];
     groupes[groupe].push(kanjiData[i]);
   }
 
   return groupes;
 }
-
+///
 const groupes = groupByAccessLevel(kanjiData);
 
 
