@@ -1,5 +1,3 @@
-const kanjiData = require("../../Ressources/kanji.updated");
-
 async function loadKanjiProgress() {
   const user = await getCurrentUser();
   if (!user || !user.kanjiProgress) return;
