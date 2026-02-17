@@ -1,3 +1,5 @@
+const kanjiData = require("../../Ressources/kanji.updated");
+
 async function loadKanjiProgress() {
   const user = await getCurrentUser();
   if (!user || !user.kanjiProgress) return;
@@ -112,11 +114,7 @@ async function renderKanjiList() {
   const container = document.getElementById("kanji-list");
   container.innerHTML = "";
 
-  const totalKanji = kanjiData.length;
-  const maxVisible = getKanjiPerLevel(totalKanji, niveauUtilisateur);
-  const kanjiVisibles = kanjiData.slice(0, maxVisible);
-
-  const groupes = groupByAccessLevel(kanjiData, Math.ceil(totalKanji / 10));
+  const groupes = groupByAccessLevel(kanjiData);
 
   for (let niveau = 1; niveau <= 10; niveau++) {
     const section = document.createElement("section");
@@ -129,7 +127,7 @@ async function renderKanjiList() {
 
     const cartes = groupes[niveau] || [];
     cartes.forEach(kanji => {
-      const accessible = kanjiVisibles.includes(kanji);
+      const accessible = kanji.unlocked_level >= niveauUtilisateur;
       cards.appendChild(createKanjiCard(kanji, accessible));
     });
 
@@ -155,9 +153,7 @@ function isAvailable(kanji) {
 async function updateExerciseButtons() {
   const user = await getCurrentUser();
   const niveauUtilisateur = user.level_kanji || 1;
-  const totalKanji = kanjiData.length;
-  const maxVisible = Math.floor((Math.min(niveauUtilisateur, 10) * totalKanji) / 10);
-  const accessibles = kanjiData.slice(0, maxVisible);
+  const accessibles = kanjiData.filter(k => k.unlocked_level >= niveauUtilisateur);
   const disponibles = accessibles.filter(k => isAvailable(k));
   const nbDecouverte = disponibles.filter(k => k.level === 0).length;
   const nbEvolution = disponibles.filter(k => k.level > 0).length;
